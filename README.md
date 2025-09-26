@@ -1,6 +1,6 @@
 <img src="./assets/meme_banner.gif" width="100%" height="100px" alt="Pepe Banner">
 
-# pepeScreper - 4chan scraper <img src="./assets/4chan-logo.png" style="height: 20px; width: 20px">
+# pepeScreper - 4chan scraper  <img src="./assets/4chan-logo.png" style="height: 20px; width: 20px; margin: 0 0 0 5px">
 
 *A complete scraper for 4chan (I don't guarantee it will be fast)*
 
