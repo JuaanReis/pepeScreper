@@ -4,7 +4,7 @@
 
     Author: JuaanReis
     Date: 28-08-2025
-    Last modification: 24-09-2025
+    Last modification: 25-09-2025
     E-mail: teixeiradosreisjuan@gmail.com   
     Version: 0.0.1
 
@@ -19,22 +19,27 @@
 
 import httpx
 from httpx import Response
-from src.utils.load_config import load_config_json
 import json
+import config
 
-def get_response(url: str) -> Response | None:
+client = httpx.Client(http2=True, timeout=httpx.Timeout(5.0, connect=2.0))
+
+def get_response(url: str) -> httpx.Response | None:
     try:
-        DATA = load_config_json()
-        with httpx.Client(http2=True) as client:
-            response = client.get(url, timeout=4)
+        response = client.get(url)
+        response.raise_for_status()  
         return response
-    except httpx.RequestError:
+    except (httpx.RequestError, httpx.HTTPStatusError) as e:
+        if config.debug:
+            print(f"[HTTP ERROR] {url} -> {e}")
         return None
-
+    
 def get_boards_api() -> list:
     boards = get_response("https://a.4cdn.org/boards.json")
     if not boards:
         print("ERROR: could not access the api.")
+        if config.debug:
+            print(f"[API STATUS] {boards.status_code}")
         return
     with open("./src/data/boards.json", "w") as f:
         json.dump(boards.json(), f, indent=4)
