@@ -55,7 +55,7 @@ If you use Linux it will also be the same thing above (but Linux sometimes force
     "--min-replies <n>": minimum number of replies the thread must have  
     "--max-replies <n>": maximum number of replies the thread can have  
     "--board <board_name>": name(s) of the board(s) to search  
-    "-T <n>": timeout (default: 30s)  
+    "-T <n>": number of threads that the program will work with (workers in the ThreadPoolExecutor)  
     "--op-only, -op": only consider the original post (OP)  
 ```
 

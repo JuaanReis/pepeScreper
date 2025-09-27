@@ -42,7 +42,7 @@ def search_threads(args: Namespace) -> dict:
     if total_tasks == 0:
         return results
 
-    with ThreadPoolExecutor(max_workers=args.T) as executor:
+    with ThreadPoolExecutor(max_workers=args.threads) as executor:
         futures = {executor.submit(get_thread_info, board, thread_no): (board, thread_no) for board, thread_no in tasks}
 
         for future in tqdm(as_completed(futures), total=total_tasks, desc="Processing threads", ncols=100):
