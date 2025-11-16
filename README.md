@@ -65,7 +65,7 @@ If you use Linux it will also be the same thing above (but Linux sometimes force
 
 ## Example
 
-<img src="./assets/1-1-4-rc-1.png" style="height: 300px; background-align: center">
+<img src="./assets/1-1-4-rc-1.png" style="background-align: center">
 
 > I know this meme is awful and the screenshot turned out terrible.
 
